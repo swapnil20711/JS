@@ -48,3 +48,42 @@ const squares = array.customMap((element) => {
 });
 
 console.log("Squares of array is : ", squares);
+
+const double = array.map((x) => x * 2);
+const triple = array.map((x) => x * 3);
+const binary = array.map((x) => x.toString(2));
+console.log(double);
+console.log(triple);
+console.log(binary);
+
+const oddValues = array.filter((x) => x % 2);
+console.log("Array of odd values is : ", oddValues);
+
+// sum, max we can use reduce
+function findSum(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum = sum + array[i];
+  }
+
+  return sum;
+}
+
+function findMax(array) {
+  let max = array[0];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > max) {
+      max = array[i];
+    }
+  }
+
+  return max;
+}
+
+const sum = array.reduce((acc, cur) => acc + cur);
+const max = array.reduce((acc, cur) => (acc > cur ? acc : cur), array[0]);
+
+console.log("Sum of array is : ", findSum(array));
+console.log("Sum of array is : ", sum);
+console.log("Max of array is : ", findMax(array));
+console.log("Max of array is : ", max);
