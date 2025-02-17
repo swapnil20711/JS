@@ -87,3 +87,42 @@ console.log("Sum of array is : ", findSum(array));
 console.log("Sum of array is : ", sum);
 console.log("Max of array is : ", findMax(array));
 console.log("Max of array is : ", max);
+
+const users = [
+  { firstName: "Swapnil", lastName: "Bhojwani", age: 24 },
+  { firstName: "Rohan", lastName: "Goyal", age: 29 },
+  { firstName: "Donald", lastName: "Trump", age: 70 },
+  { firstName: "Narendra", lastName: "Modi", age: 70 },
+];
+
+const usersWithFullName = users.map(
+  (user) => user.firstName + " " + user.lastName
+);
+console.log(usersWithFullName);
+
+const output = users.reduce(function (acc, cur) {
+  if (acc[cur.age]) {
+    acc[cur.age] = acc[cur.age] + 1;
+  } else {
+    acc[cur.age] = 1;
+  }
+  return acc;
+}, {});
+
+console.log(output);
+
+// First name of users having age less than 30
+const firstNames = users
+  .filter((user) => user.age < 30)
+  .map((user) => user.firstName);
+
+console.log(firstNames);
+
+const firstNamesSecondApproach = users.reduce((acc, cur) => {
+  if (cur.age < 30) {
+    acc.push(cur.firstName);
+  }
+  return acc;
+}, []);
+
+console.log(firstNamesSecondApproach);
